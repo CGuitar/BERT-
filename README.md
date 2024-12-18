@@ -1,5 +1,3 @@
-@[TOC](用BERT文本情感分析实现酒店评分有效性调整——自然语言处理期末大作业)
-
 # 原题背景与要求
 
 ## 背景
@@ -123,4 +121,4 @@ GitHub：[中文情感分类 | 基于三分类的文本情感分析](https://git
 + 参考了他使用BERT文本情感分析的训练方法
 
 ---
-本项目的具体代码放在了我的GitHub上：[中文情感分类 | 基于三分类的文本情感分析](https://github.com/yaokui2018/SentimentAnalysis?tab=readme-ov-file)
+本项目的CSDN：[中文情感分类 | 基于三分类的文本情感分析](https://github.com/yaokui2018/SentimentAnalysis?tab=readme-ov-file)
