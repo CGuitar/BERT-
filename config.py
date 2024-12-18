@@ -4,8 +4,8 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser()
     # dir
-    parser.add_argument("--data_dir", default='C:/Users/23262/PycharmProjects/TEST01/SentimentAnalysis-master/bert/data/', type=str, help="数据集路径")
-    parser.add_argument("--bert_model", default='C:/Users/23262/.cache/huggingface/hub/bert-base-chinese', type=str, help="Bert模型名，可在线仓库名/本地路径")
+    parser.add_argument("--data_dir", default='你的数据集路径/data/', type=str, help="数据集路径")
+    parser.add_argument("--bert_model", default='你的bert-base-chinese库路径/huggingface/hub/bert-base-chinese', type=str, help="Bert模型名，可在线仓库名/本地路径")
     parser.add_argument("--output_dir", default='checkpoints/', type=str, help="模型 checkpoints 保存目录")
     # parser.add_argument("--model_save_pth", default='checkpoints/bert.pth', type=str, help="模型文件保存路径")
     # other parameters
