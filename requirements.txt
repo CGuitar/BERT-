@@ -7,3 +7,8 @@ sklearn==0.0
 # bert
 transformers==4.27.1
 torch==1.13.1
+
+# dataset
+tqdm
+Pinyin2Hanzi
+pypinyin
