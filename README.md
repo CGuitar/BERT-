@@ -45,6 +45,7 @@
 │   ├── ./bert/test.py
 │   ├── ./bert/train.py
 │   ├── ./bert/TF-IDF.py
+│   ├── ./bert/requirements.txt
 │   └── ./bert/decrypt.py
 ————————————————
 ```
