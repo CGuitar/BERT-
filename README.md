@@ -114,6 +114,8 @@ python postData.py
 ![BERT情感分析测试](https://i-blog.csdnimg.cn/direct/eb75d01b8db9481cb082fa9bbac72d49.png)
 ![重复度高的评论的查找与删除](https://i-blog.csdnimg.cn/direct/d2366a49b74145329b4e0d8dc3f4b044.png)
 ![分数前后对比](https://i-blog.csdnimg.cn/direct/b13eb2efc3fa41db8efad2905fa3caa0.png)
+![image](https://github.com/user-attachments/assets/af56e927-501b-4f4e-886b-5b1d83f3726e)
+![image](https://github.com/user-attachments/assets/7e59bcde-7f38-4eb2-a92d-c1bccfa68113)
 
 
 ## 八、参考代码
