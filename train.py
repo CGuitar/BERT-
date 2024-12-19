@@ -13,6 +13,9 @@ from transformers import BertTokenizer, BertForSequenceClassification, AdamW, PY
     get_linear_schedule_with_warmup
 
 from config import get_args
+from torch.utils.tensorboard import SummaryWriter
+
+
 
 args = get_args()
 
@@ -121,7 +124,6 @@ class MyPro(DataProcessor):
             examples.append(
                 InputExample(guid=guid, text_a=text_a, label=label))
         return examples
-
 
 
 def convert_examples_to_features(examples, label_list, max_seq_length, tokenizer, show_exp=True):
@@ -365,6 +367,8 @@ def test(model, processor, args, label_list, tokenizer, device):
 
 
 def main():
+    # 初始化 TensorBoard 的 SummaryWriter
+    writer = SummaryWriter(log_dir=args.output_dir)
     device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
     n_gpu = torch.cuda.device_count()
 
@@ -389,8 +393,8 @@ def main():
     processor = MyPro()
     label_list = processor.get_labels()
 
-    # tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
-    tokenizer = BertTokenizer.from_pretrained("C:/Users/23262/.cache/huggingface/hub/bert-base-chinese", do_lower_case=args.do_lower_case)
+    tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
+
     train_examples = None
     num_train_steps = None
     if args.do_train:
@@ -472,10 +476,15 @@ def main():
                     loss = loss / args.gradient_accumulation_steps
                 loss.backward()
 
+                
+                # 记录当前 batch 的损失
+                writer.add_scalar("Train/Loss", loss.item(), global_step=step + _ * len(train_dataloader))
+                
                 if step % 5 == 0:
                     print(f"Epoch {_ + 1}/{args.num_train_epochs}, Iter: {step}/{len(train_dataloader)}, "
                           f"Train Loss: {loss}, Best F1 Score: {best_score}")
 
+                    
                 if (step + 1) % args.gradient_accumulation_steps == 0:
                     if args.fp16 or args.optimize_on_cpu:
                         if args.fp16 and args.loss_scale != 1.0:
@@ -499,6 +508,12 @@ def main():
             print("valid...")
             val_loss, f1 = val(model, processor, args, label_list, tokenizer, device)
             print(f"Val Loss: {val_loss}, Val F1: {f1}")
+            
+            # 记录验证损失和 F1 分数
+            writer.add_scalar("Validation/Loss", val_loss, global_step=_ + 1)
+            writer.add_scalar("Validation/F1", f1, global_step=_ + 1)
+            
+            
             if f1 > best_score:
                 best_score = f1
                 flags = 0
@@ -514,14 +529,14 @@ def main():
                 flags += 1
                 if flags >= 6:
                     break
-
     # model.load_state_dict(torch.load(args.model_save_pth)['state_dict'])
     tokenizer = BertTokenizer.from_pretrained(args.output_dir, do_lower_case=args.do_lower_case)
     model = BertForSequenceClassification.from_pretrained(args.output_dir, num_labels=len(label_list))
     model.to(device)
     print("testing...")
     test(model, processor, args, label_list, tokenizer, device)
-
+    # 关闭 SummaryWriter
+    writer.close()
 
 if __name__ == '__main__':
     main()
