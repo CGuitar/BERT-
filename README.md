@@ -124,4 +124,4 @@ GitHub：[中文情感分类 | 基于三分类的文本情感分析](https://git
 + 参考了他使用BERT文本情感分析的训练方法
 
 ---
-本项目的CSDN：[中文情感分类 | 基于三分类的文本情感分析](https://blog.csdn.net/PJ212/article/details/144570396?spm=1001.2014.3001.5502)
+本项目的CSDN：[用BERT文本情感分析实现酒店评分有效性调整——自然语言处理期末大作业](https://blog.csdn.net/PJ212/article/details/144570396?spm=1001.2014.3001.5502)
