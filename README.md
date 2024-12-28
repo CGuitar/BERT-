@@ -109,11 +109,9 @@ python postData.py
 ## 七、部分工作过程
 + 预处理、后处理、BERT的test在本机上实现，模型训练在云服务器上进行
 
-![BERT在AutoDL上的训练](https://i-blog.csdnimg.cn/direct/e4dc0273dae84b49950222db7cd4d306.png)
-
-![BERT情感分析测试](https://i-blog.csdnimg.cn/direct/eb75d01b8db9481cb082fa9bbac72d49.png)
-![重复度高的评论的查找与删除](https://i-blog.csdnimg.cn/direct/d2366a49b74145329b4e0d8dc3f4b044.png)
-![分数前后对比](https://i-blog.csdnimg.cn/direct/b13eb2efc3fa41db8efad2905fa3caa0.png)
+![BERT在AutoDL上的训练](https://github.com/user-attachments/assets/acccfd31-4357-491b-89a0-331ce7b9733d)
+![BERT情感分析测试](https://github.com/user-attachments/assets/333ef670-1b3b-4f25-b319-cfcd5915b4c6)
+![重复度高的评论的查找与删除](https://github.com/user-attachments/assets/26f029e4-b071-4269-b519-fd6745ec8d0e)
 ![loss曲线](https://github.com/user-attachments/assets/af56e927-501b-4f4e-886b-5b1d83f3726e)
 ![F1曲线](https://github.com/user-attachments/assets/7e59bcde-7f38-4eb2-a92d-c1bccfa68113)
 ![最终结果](https://github.com/user-attachments/assets/3d4c78de-4024-47d8-b1e6-a1e63b334ba0)
